@@ -3,11 +3,13 @@ from airflow.decorators import task
 from airflow.operators.bash import BashOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from datetime import datetime
+from pathlib import Path
 
 from src.extract import download_raw_data
 
 # Define paths as constants for Robustness (DRY principle)
-AIRFLOW_CONTAINER_ROOT = f"/opt/airflow"
+AIRFLOW_CONTAINER_ROOT = Path("/opt/airflow")
+SQL_FOLDER = AIRFLOW_CONTAINER_ROOT / "scripts" / "sql"
 
 with DAG(
     dag_id='olist_pipeline',
@@ -17,7 +19,7 @@ with DAG(
     catchup=False,
 
     # This tells Airflow where to look for your SQL files
-    template_searchpath=[f"{AIRFLOW_CONTAINER_ROOT}/sql"] 
+    template_searchpath=[str(SQL_FOLDER)] 
 
 ) as dag:
 
