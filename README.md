@@ -1,5 +1,5 @@
 # 🌀 Airflow + Postgres + Python Dockerized ETL Project
-<documentation in progress>
+# documentation in progress
 A minimal ETL setup using **Apache Airflow**, **PostgreSQL**, and **Python**, containerized using **Docker**.
 
 ---
