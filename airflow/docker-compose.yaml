@@ -85,7 +85,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ../${AIRFLOW_PROJ_DIR:-.}/src:/opt/airflow/src           # Mount your python logic here
-    - ../${AIRFLOW_PROJ_DIR:-.}/scripts/sql:/opt/airflow/sql   # Mount your SQL folder here
+    - ../${AIRFLOW_PROJ_DIR:-.}/scripts/sql:/opt/airflow/scripts/sql   # Mount your SQL folder here
     - ../${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data         # Mount your data folder here
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
