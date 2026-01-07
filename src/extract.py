@@ -1,5 +1,6 @@
 from pathlib import Path
 from dotenv import load_dotenv
+import sys
 
 # Load variables from .env into os.environ
 load_dotenv()
@@ -17,7 +18,7 @@ def download_raw_data(dataset_id: str, target_path: Path):
     try:
         # authenticate() automatically looks for KAGGLE_USERNAME and KAGGLE_KEY in os.environ
         kaggle.api.authenticate()
-        
+        print("Authentication successful.")
         kaggle.api.dataset_download_files(
             dataset_id, 
             path=str(target_path), 
@@ -27,6 +28,7 @@ def download_raw_data(dataset_id: str, target_path: Path):
         
     except Exception as e:
         print(f"Failed to download dataset: {e}")
+        sys.exit(1) # Added exit for failure case 
 
 if __name__ == "__main__":
     download_raw_data("olistbr/brazilian-ecommerce", FILEPATH)
