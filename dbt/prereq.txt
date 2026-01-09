@@ -1,0 +1,5 @@
+setup dbt docker
+mount volumes
+do staging tables
+do marts
+end
