@@ -12,4 +12,6 @@ __pycache__/
 .envrc
 .venv/
 venv/
+dbt/logs
+dbt/jaffle_shop
 
