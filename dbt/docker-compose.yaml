@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest # Official image
+    container_name: dbt_worker 
+    environment:
+      - ADAPTER_HOST=postgres # Match your Airflow DB service name
+      - ADAPTER_USER=airflow
+      - ADAPTER_PASSWORD=airflow
+      - ADAPTER_DB=jaffle_shop
+      - ADAPTER_SCHEMA=jaffle_shop
+    volumes:
+      - .:/usr/app 
+      - ~/.dbt:/root/.dbt 
+    networks:
+      - airflow_network # Join the Airflow network
+
+    # Keep the container running for interactive use 
+    entrypoint: "" 
+    command: ["sleep", "infinity"]
+
+networks:
+  airflow_network:
+    external: true
+    name: olist-airflow-pipeline_default  # Change this to the result of 'docker network ls' command
