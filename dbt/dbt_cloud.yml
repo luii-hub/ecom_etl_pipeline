@@ -1,0 +1,19 @@
+# dbt_project.yml
+name: "dbt_cloud"
+version: "1"
+context:
+  active-host: "at016.us1.dbt.com"
+  active-project: "70471823540587"
+projects:
+  - project-name: "Olist_Ecommerce_dbt_project"
+    project-id: "70471823540587"
+    account-name: "Luis's dbt Cloud Account"
+    account-id: "70471823522986"
+    account-host: "at016.us1.dbt.com"
+    token-name: "cloud-cli-93f9"
+    token-value: "dbtu_CpL94xENCvtVIbF6LqTIKdVfTK2UitA41jLbF7U4f8kEZhSVsc"
+
+dbt-cloud:
+  project-id: 70471823540587
+
+
