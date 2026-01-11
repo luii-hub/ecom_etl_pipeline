@@ -12,4 +12,6 @@ __pycache__/
 .envrc
 .venv/
 venv/
+profiles.yml
+dbt_cloud.yml
 

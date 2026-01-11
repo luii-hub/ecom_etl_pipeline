@@ -1,12 +1,12 @@
-jaffle_shop:
+olist_ecommerce:
   outputs:
     dev:
-      dbname: jaffle_shop
+      dbname: olist
       host: postgres
-      pass: airflow
-      port: 5432
-      schema: jaffle_shop
+      user: "{{ env_var('DB_USER') }}"
+      pass: "{{ env_var('DB_PASSWORD') }}"
+      port: 5432 # Your default database port here
+      schema: olist
       threads: 4
       type: postgres
-      user: airflow
   target: dev
