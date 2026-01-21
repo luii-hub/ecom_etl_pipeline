@@ -6,3 +6,4 @@ logs/
 __pycache__/
 .vscode/
 *.pyc
+dbt_internal_packages/
