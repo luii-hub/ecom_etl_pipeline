@@ -1,0 +1,14 @@
+models:
+  - name: stg_olist__customers
+    description: "Customer data including customer ID and location. Use it to identify unique customers in the orders dataset and to find the orders delivery location"
+    columns:
+      - name: customer_id
+        description: "Key to the orders dataset. Each order has a unique customer_id."
+      - name: customer_unique_id
+        description: "Unique identifier for each customer across multiple orders"
+      - name: customer_zip_code_prefix
+        description: "First 5 digits of the customer's zip code"
+      - name: customer_city
+        description: "City of the customer"
+      - name: customer_state
+        description: "State of the customer"

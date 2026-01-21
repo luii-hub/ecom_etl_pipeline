@@ -1,0 +1,74 @@
+sources:
+  - name: olist
+    database: olist
+    schema: raw
+    description: "Raw data from Olist e-commerce platform"
+    tables:
+      - name: olist_category_name_translation
+        description: "Translates the product_category_name to english (originally in Portuguese)"
+        columns:
+          - name: product_category_name
+            description: "Original product category name in Portuguese"
+          - name: product_category_name_english
+            description: "Translated product category name in English"
+
+      - name: olist_customers
+        description: "Customer data including customer ID and location. Use it to identify unique customers in the orders dataset and to find the orders delivery location"
+        columns:
+          - name: customer_id
+            description: "Key to the orders dataset. Each order has a unique customer_id."
+          - name: customer_unique_id
+            description: "Unique identifier for each customer across multiple orders"
+          - name: customer_zip_code_prefix
+            description: "First 5 digits of the customer's zip code"
+          - name: customer_city
+            description: "City of the customer"
+          - name: customer_state
+            description: "State of the customer"
+
+      - name: olist_geolocation
+        description: "Geolocation data including latitude and longitude"
+        columns:
+          - name: geolocation_zip_code_prefix
+            description: "First 5 digits of the zip code"
+          - name: geolocation_lat
+            description: "Latitude coordinate"
+          - name: geolocation_lng
+            description: "Longitude coordinate"
+          - name: geolocation_city
+            description: "City corresponding to the zip code"
+          - name: geolocation_state
+            description: "State corresponding to the zip code"
+
+      - name: olist_order_items
+        description: "Details includes data about the items purchased within each order."
+        columns:
+          - name: order_id
+            description: "Unique identifier for each order"
+          - name: order_item_id
+            description: "Identifier for each item within an order"
+          - name: product_id
+            description: "Unique identifier for each product"
+          - name: seller_id
+            description: "Unique identifier for each seller"
+          - name: shipping_limit_date
+            description: "Deadline for shipping the item"
+          - name: price
+            description: "Price of the item"
+          - name: freight_value
+            description: "Freight cost for the item"
+
+      - name: olist_order_payments
+        description: "Payment information for orders"
+
+      - name: olist_order_reviews
+        description: "Customer reviews for orders"
+
+      - name: olist_orders
+        description: "Order data including order status and purchase timestamp"
+
+      - name: olist_products
+        description: "Product details including product ID and category"
+        
+      - name: olist_sellers
+        description: "Seller information including seller ID and location"
