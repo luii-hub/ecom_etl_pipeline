@@ -1,0 +1,24 @@
+models:
+  - name: stg_olist__products
+    description: "Staging table for olist products data."
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+      - name: product_category_name
+        description: "Category name of the product."
+      - name: product_name_length
+        description: "Length of the product name."
+      - name: product_description_length
+        description: "Length of the product description."
+      - name: product_photos_qty
+        description: "Quantity of photos for the product."
+      - name: product_weight_g
+        description: "Weight of the product in grams."
+      - name: product_length_cm
+        description: "Length of the product in centimeters."
+      - name: product_height_cm
+        description: "Height of the product in centimeters."
+      - name: product_width_cm
+        description: "Width of the product in centimeters."
+      - name: _processed_at
+        description: "Timestamp when the record was processed."

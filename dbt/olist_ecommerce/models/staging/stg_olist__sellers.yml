@@ -1,0 +1,14 @@
+models:
+  - name: stg_olist__sellers
+    description: "Staging table for olist sellers data."
+    columns:
+      - name: seller_id
+        description: "Unique identifier for the seller."
+      - name: seller_zip_code_prefix
+        description: "Zip code prefix of the seller's location."
+      - name: seller_city
+        description: "City where the seller is located."
+      - name: seller_state
+        description: "State where the seller is located."
+      - name: _processed_at
+        description: "Timestamp when the record was processed."

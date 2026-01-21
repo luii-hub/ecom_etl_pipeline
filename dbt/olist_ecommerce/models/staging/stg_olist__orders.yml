@@ -1,0 +1,20 @@
+models:
+  - name: stg_olist__orders
+    description: "Staging table for Olist orders data."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+      - name: customer_unique_id
+        description: "Unique identifier for each customer."
+      - name: order_status
+        description: "Current status of the order (e.g., delivered, shipped)."
+      - name: purchase_timestamp
+        description: "Timestamp when the order was purchased."
+      - name: approved_at
+        description: "Timestamp when the order was approved."
+      - name: delivered_carrier_date
+        description: "Timestamp when the order was delivered to the carrier."
+      - name: delivered_customer_date
+        description: "Timestamp when the order was delivered to the customer."
+      - name: estimated_delivery_date
+        description: "Estimated delivery date for the order."

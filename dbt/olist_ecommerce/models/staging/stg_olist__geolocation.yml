@@ -1,0 +1,14 @@
+models:
+  - name: stg_olist__geolocation
+    description: "Geolocation data including zip code, city, state, latitude, and longitude. Use it to map customer and seller locations."
+    columns:
+      - name: zip_code_prefix
+        description: "First 5 digits of the zip code"
+      - name: latitude
+        description: "Latitude coordinate for the zip code"
+      - name: longitude
+        description: "Longitude coordinate for the zip code"
+      - name: city
+        description: "City corresponding to the zip code"
+      - name: state
+        description: "State corresponding to the zip code"

@@ -6,7 +6,7 @@ select
     customer_zip_code_prefix::TEXT as zip_code_prefix,
     INITCAP(customer_city)::TEXT as city,
     UPPER(customer_state)::TEXT as state,
-    _ingested_at::TIMESTAMP as _processed_at
+    CURRENT_TIMESTAMP as _processed_at
 
 from {{ source('olist', 'olist_customers') }}
 

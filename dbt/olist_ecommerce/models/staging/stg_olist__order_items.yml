@@ -1,0 +1,18 @@
+models:
+  - name: stg_olist__order_items
+    description: "Staging table for Olist order items data."
+    columns:
+      - name: order_item_id
+        description: "Unique identifier for each order item."
+      - name: order_id
+        description: "Identifier linking the item to its corresponding order."
+      - name: product_id
+        description: "Unique identifier for each product."
+      - name: seller_id
+        description: "Unique identifier for each seller."
+      - name: shipping_limit_date
+        description: "Deadline date for shipping the order item."
+      - name: price
+        description: "Price of the order item."
+      - name: freight_value
+        description: "Freight cost associated with the order item."

@@ -1,0 +1,10 @@
+models:
+  - name: stg_olist__category_translation
+    description: "Staging table for olist category name translation data."
+    columns:
+      - name: category_name_portuguese
+        description: "Category name in Portuguese."
+      - name: category_name_english
+        description: "Category name in English."
+      - name: _processed_at
+        description: "Timestamp when the record was processed."

@@ -1,0 +1,20 @@
+models:
+  - name: stg_olist__order_reviews
+    description: "Staging table for olist order reviews data."
+    columns:
+      - name: review_id
+        description: "Unique identifier for the review."
+      - name: order_id
+        description: "Unique identifier for the order."
+      - name: review_score
+        description: "Score given in the review."
+      - name: review_itle
+        description: "Title of the review comment."
+      - name: review_message
+        description: "Message of the review comment."
+      - name: review_creation_date
+        description: "Date when the review was created."
+      - name: review_answer_timestamp
+        description: "Timestamp when the review was answered."
+      - name: _processed_at
+        description: "Timestamp when the record was processed."
