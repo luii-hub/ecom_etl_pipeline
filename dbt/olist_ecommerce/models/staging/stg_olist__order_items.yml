@@ -2,6 +2,8 @@ models:
   - name: stg_olist__order_items
     description: "Staging table for Olist order items data."
     columns:
+      - name: order_item_key
+        description: "Surrogate key for the order item."
       - name: order_item_id
         description: "Unique identifier for each order item."
       - name: order_id

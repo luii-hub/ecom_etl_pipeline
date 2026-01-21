@@ -1,8 +1,9 @@
 -- staging model for olist_orders
 select
 
-    order_item_id::TEXT as order_item_id,
+    {{ dbt_utils.generate_surrogate_key(['order_id', 'order_item_id']) }} as order_item_key,
     order_id::TEXT as order_id,
+    order_item_id::TEXT as order_item_id,
     product_id::TEXT as product_id,
     seller_id::TEXT as seller_id,
     shipping_limit_date::TIMESTAMP as shipping_limit_date,
