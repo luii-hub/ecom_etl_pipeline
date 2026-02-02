@@ -4,6 +4,9 @@ models:
     columns:
       - name: seller_id
         description: "Unique identifier for the seller."
+        data_tests:
+          - not_null
+          - unique
       - name: seller_zip_code_prefix
         description: "Zip code prefix of the seller's location."
       - name: seller_city
@@ -12,3 +15,5 @@ models:
         description: "State where the seller is located."
       - name: _processed_at
         description: "Timestamp when the record was processed."
+
+tests:

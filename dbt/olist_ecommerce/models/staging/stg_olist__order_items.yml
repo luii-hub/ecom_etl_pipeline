@@ -4,17 +4,32 @@ models:
     columns:
       - name: order_item_key
         description: "Surrogate key for the order item."
+        data_tests:
+          - not_null
+          - unique  
       - name: order_item_id
         description: "Unique identifier for each order item."
+        data_tests:
+          - not_null
+          # we do not add unique test here because order_item_id is unique only 
+          # within the context of an order
       - name: order_id
         description: "Identifier linking the item to its corresponding order."
+        data_tests:
+          - not_null
       - name: product_id
         description: "Unique identifier for each product."
+        data_tests:
+          - not_null
       - name: seller_id
         description: "Unique identifier for each seller."
+        data_tests:
+          - not_null
       - name: shipping_limit_date
         description: "Deadline date for shipping the order item."
       - name: price
         description: "Price of the order item."
+        data_tests:
+          - not_null          
       - name: freight_value
         description: "Freight cost associated with the order item."

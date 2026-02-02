@@ -4,8 +4,13 @@ models:
     columns:
       - name: review_id
         description: "Unique identifier for the review."
+        data_tests:
+          - not_null
+          - unique
       - name: order_id
         description: "Unique identifier for the order."
+        data_tests:
+          - not_null
       - name: review_score
         description: "Score given in the review."
       - name: review_itle

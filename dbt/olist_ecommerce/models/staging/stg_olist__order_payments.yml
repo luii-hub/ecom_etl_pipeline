@@ -4,6 +4,9 @@ models:
     columns:
       - name: order_id
         description: "Unique identifier for the order."
+        data_tests:
+          - not_null
+          
       - name: payment_sequential
         description: "Sequential number of the payment for the order."
       - name: payment_type

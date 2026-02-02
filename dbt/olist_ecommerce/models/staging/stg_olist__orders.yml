@@ -4,10 +4,23 @@ models:
     columns:
       - name: order_id
         description: "Unique identifier for each order."
-      - name: customer_unique_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_order_id
         description: "Unique identifier for each customer."
+        data_tests:
+          - not_null
+          - unique
       - name: order_status
         description: "Current status of the order (e.g., delivered, shipped)."
+        data_tests:
+          - accepted_values:
+              values: ['delivered', 
+                        'shipped', 
+                        'invoiced', 
+                        'canceled', 
+                        'unavailable']
       - name: purchase_timestamp
         description: "Timestamp when the order was purchased."
       - name: approved_at

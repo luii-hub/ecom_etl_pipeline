@@ -4,8 +4,14 @@ models:
     columns:
       - name: customer_id
         description: "Key to the orders dataset. Each order has a unique customer_id."
-      - name: customer_unique_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_order_id
         description: "Unique identifier for each customer across multiple orders"
+        data_tests:
+          - not_null
+          - unique
       - name: customer_zip_code_prefix
         description: "First 5 digits of the customer's zip code"
       - name: customer_city

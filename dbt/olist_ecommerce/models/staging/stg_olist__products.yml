@@ -4,6 +4,9 @@ models:
     columns:
       - name: product_id
         description: "Unique identifier for the product."
+        data_tests:
+          - not_null
+          - unique
       - name: product_category_name
         description: "Category name of the product."
       - name: product_name_length
