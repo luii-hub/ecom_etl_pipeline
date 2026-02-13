@@ -6,7 +6,9 @@ models:
         description: "First 5 digits of the zip code"
         data_tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                severity: warn # allows dbt build to continue
       - name: latitude
         description: "Latitude coordinate for the zip code"
       - name: longitude

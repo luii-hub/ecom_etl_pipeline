@@ -1,8 +1,14 @@
 -- staging model for olist_category_name-translation
-select
+with source as (
+    select * from {{ source('olist', 'olist_category_name_translation') }}
+),
 
-    category_name::TEXT as category_name_portuguese,
-    category_name_english::TEXT as category_name_english,
-    CURRENT_TIMESTAMP as _processed_at
+renamed as (
+    select
+        category_name::TEXT as category_name_portuguese,
+        category_name_english::TEXT as category_name_english,
+        CURRENT_TIMESTAMP as _processed_at
+    from source
+)
 
-from {{ source('olist', 'olist_category_name_translation') }}
+select * from renamed

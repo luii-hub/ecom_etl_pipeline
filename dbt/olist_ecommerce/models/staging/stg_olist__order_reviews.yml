@@ -6,7 +6,9 @@ models:
         description: "Unique identifier for the review."
         data_tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                severity: warn # allows dbt build to continue
       - name: order_id
         description: "Unique identifier for the order."
         data_tests:

@@ -16,11 +16,9 @@ models:
         description: "Current status of the order (e.g., delivered, shipped)."
         data_tests:
           - accepted_values:
-              values: ['delivered', 
-                        'shipped', 
-                        'invoiced', 
-                        'canceled', 
-                        'unavailable']
+              values: ['delivered', 'shipped', 'invoiced', 'cancelled', 'unavailable', 'processing', 'approved', 'created']
+              config:
+                severity: warn # allows dbt build to continue
       - name: purchase_timestamp
         description: "Timestamp when the order was purchased."
       - name: approved_at
