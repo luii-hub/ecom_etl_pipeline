@@ -1,6 +1,11 @@
 models:
   - name: stg_olist__order_items
     description: "Staging table for Olist order items data."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_id
+            - order_item_id
     columns:
       - name: order_item_key
         description: "Surrogate key for the order item."

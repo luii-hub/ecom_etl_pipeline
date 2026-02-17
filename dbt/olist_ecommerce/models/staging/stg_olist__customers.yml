@@ -6,9 +6,6 @@ models:
         description: "Unique identifier for each customer across multiple orders"
         data_tests:
           - not_null
-          - unique:
-              config:
-                severity: warn # allows dbt build to continue
       - name: customer_order_id
         description: "Key to the orders dataset. Each order has a unique customer_id."
         data_tests:

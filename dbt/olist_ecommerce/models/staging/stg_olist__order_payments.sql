@@ -5,6 +5,7 @@ with source as (
 
 renamed as (
     select
+        {{ dbt_utils.generate_surrogate_key(['order_id', 'payment_sequential']) }} as order_payment_item_pk,
         order_id::TEXT as order_id,
         payment_sequential::INT as payment_sequential,
         payment_type::TEXT as payment_type,

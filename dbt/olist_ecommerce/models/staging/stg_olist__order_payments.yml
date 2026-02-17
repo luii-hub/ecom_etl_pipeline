@@ -2,13 +2,18 @@ models:
   - name: stg_olist__order_payments
     description: "Staging table for olist order payments data."
     columns:
+      - name: order_payment_item_pk
+        description: "Surrogate primary key for the order payments table, generated from order_id and payment_sequential."
+        data_tests:
+          - not_null
+          - unique
       - name: order_id
         description: "Unique identifier for the order."
         data_tests:
           - not_null
-          
+          # Not unique since an order can have multiple payments and we want to capture all of them in this staging table
       - name: payment_sequential
-        description: "Sequential number of the payment for the order."
+        description: "A customer may pay an order with more than one payment method. If he does so, a sequence will be created to accommodate all payments. Sequential number of the payment for the order. The number of payment sequential indicates the number of payments made for the order."
       - name: payment_type
         description: "Type of payment used for the order."
       - name: payment_installments
