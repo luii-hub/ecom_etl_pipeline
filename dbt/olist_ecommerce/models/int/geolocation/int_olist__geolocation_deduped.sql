@@ -4,6 +4,8 @@ with ranked_data as (
 
 select 
     zip_code_prefix,
+    latitude,
+    longitude,
     city,
     state,
     _processed_at,

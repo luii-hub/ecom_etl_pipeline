@@ -1,0 +1,71 @@
+models:
+  - name: int_olist__orders_deduped
+    description: "Intermediate table for olist orders deduplicated data. Ensures single grouping of orders based on unique identifiers and retains the most recent record for each order."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        data_tests:
+            - unique
+            - not_null
+            - relationships:
+                to: ref('int_olist__payments')
+                field: order_id
+      - name: customer_order_id
+        description: "Unique identifier for each customer's orders."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('int_olist__customers_deduped')
+              field: customer_order_id
+      - name: order_status
+        description: "Status of the order (e.g., shipped, delivered)." 
+        data_tests:
+          - accepted_values:
+              values: ['delivered', 'shipped', 'invoiced', 'canceled', 'unavailable', 'processing', 'approved', 'created']    
+      - name: purchase_timestamp
+        description: "Timestamp when the order was purchased."
+      - name: approved_at
+        description: "Timestamp when the order was approved."
+      - name: delivered_customer_date
+        description: "Timestamp when the order was delivered to the customer."
+      - name: estimated_delivery_date
+        description: "Estimated delivery date for the order."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."
+
+  - name: int_olist__order_reviews_deduped
+    description: "Intermediate table for olist order reviews deduplicated data. Ensures single grouping of reviews based on unique identifiers and retains the most recent record for each review."
+    columns:
+      - name: order_review_item_pk
+        description: "Surrogate primary key for the order reviews table, generated from review_id and order_id."
+        data_tests:
+          - not_null
+          - unique
+      - name: review_id
+        description: "Unique identifier for each review."
+        data_tests:
+          - not_null
+      - name: order_id
+        description: "Unique identifier for each order that has a review."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('int_olist__orders_deduped')
+              field: order_id
+      - name: review_score
+        description: "Score given in the review (1-5)."
+      - name: review_title
+        description: "Title of the review."
+      - name: review_message
+        description: "Message content of the review."
+      - name: review_creation_date
+        description: "Date when the review was created."
+      - name: review_answer_timestamp
+        description: "Timestamp when an answer to a review was provided (if any)."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."
+

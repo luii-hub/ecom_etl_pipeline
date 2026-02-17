@@ -1,0 +1,20 @@
+models:
+  - name: int_olist__customers_deduped
+    description: "Intermediate table for olist customers deduplicated data. Ensures single grouping of customers based on unique identifiers and retains the most recent record for each customer."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        data_tests:
+          - not_null
+      - name: customer_order_id
+        description: "Unique order identifier for each customer across all orders. A customer can have multiple orders. This field is used to link customers to their orders in the int_olist__orders_deduped table."
+      - name: zip_code_prefix
+        description: "Zip code prefix for the customer's address. Note: This field is not included in the data tests to allow for flexibility in handling missing or inconsistent zip code data."
+      - name: customer_city
+        description: "City where the customer resides."
+      - name: customer_state
+        description: "State where the customer resides."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."

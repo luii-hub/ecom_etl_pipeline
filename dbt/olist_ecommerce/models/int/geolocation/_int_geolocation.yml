@@ -1,0 +1,22 @@
+models:
+  - name: int_olist__geolocation_deduped
+    description: "Intermediate table for olist geolocation deduplicated data. Ensures single grouping of geolocation records based on unique identifiers and retains the most recent record for each geolocation."
+    columns:
+      - name: zip_code_prefix
+        description: "Zip code prefix for the geolocation."
+        data_tests:
+          - not_null
+          - unique
+      - name: latitude
+        description: "Latitude of the geolocation."
+      - name: longitude
+        description: "Longitude of the geolocation."
+      - name: city
+        description: "City associated with the geolocation."
+      - name: state
+        description: "State associated with the geolocation."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."
+        

@@ -3,6 +3,7 @@ with ranked_data as (
 )
 
 select 
+
     order_id,
     customer_order_id,
     order_status,
@@ -10,6 +11,8 @@ select
     approved_at,
     delivered_customer_date,
     estimated_delivery_date,
-    _processed_at
+    _processed_at,
+    CURRENT_TIMESTAMP as dbt_updated_at
+
 from ranked_data
 where row_num = 1

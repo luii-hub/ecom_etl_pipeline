@@ -3,6 +3,7 @@ with ranked_data as (
 )
 
 select 
+
     product_id,
     product_category_name,
     product_name_length,
@@ -12,6 +13,8 @@ select
     product_length_cm,
     product_height_cm,
     product_width_cm,
-    _processed_at
+    _processed_at,
+    CURRENT_TIMESTAMP as dbt_updated_at
+
 from ranked_data
 where row_num = 1

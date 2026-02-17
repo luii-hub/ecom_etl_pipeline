@@ -1,0 +1,61 @@
+models:
+  - name: int_olist__products_deduped
+    description: "Intermediate table for olist products deduplicated data. Ensures single grouping of products based on unique identifiers and retains the most recent record for each product."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        data_tests:
+            - unique
+            - not_null
+            - relationships:
+                to: ref('stg_olist__order_items')
+                field: product_id
+      - name: product_category_name
+        description: "Category name of the product in Portuguese."
+      - name: product_name_length 
+        description: "Length of the product name."
+      - name: product_description_length
+        description: "Length of the product description."  
+      - name: product_photos_qty
+        description: "Quantity of photos available for the product."
+      - name: product_weight_g
+        description: "Weight of the product in grams."      
+      - name: product_length_cm
+        description: "Length of the product in centimeters."
+      - name: product_height_cm
+        description: "Height of the product in centimeters."
+      - name: product_width_cm
+        description: "Width of the product in centimeters."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."
+
+  - name: int_olist__products_renamed
+    description: "Intermediate table for deduplciated olist products with renamed columns for better clarity and consistency."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        data_tests:
+            - unique
+            - not_null
+      - name: category_name
+        description: "Category name of the product in English."
+      - name: name_length 
+        description: "Length of the product name."
+      - name: description_length
+        description: "Length of the product description."  
+      - name: photos_qty
+        description: "Quantity of photos available for the product."
+      - name: weight_g
+        description: "Weight of the product in grams."      
+      - name: length_cm
+        description: "Length of the product in centimeters."
+      - name: height_cm
+        description: "Height of the product in centimeters."
+      - name: width_cm
+        description: "Width of the product in centimeters."
+      - name: _processed_at
+        description: "Timestamp when the record was last processed."
+      - name: dbt_updated_at
+        description: "Timestamp when the record was last updated in the database."
