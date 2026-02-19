@@ -4,7 +4,7 @@ with ranked_data as (
 
 select 
 
-    order_payment_item_pk,
+    order_payment_item_pk as payment_id,
     order_id,
     payment_sequential,
     payment_type,

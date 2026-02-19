@@ -9,6 +9,7 @@ select
     order_status,
     purchase_timestamp,
     approved_at,
+    delivered_carrier_date,
     delivered_customer_date,
     estimated_delivery_date,
     _processed_at,
