@@ -1,3 +1,5 @@
+{{ config(materialized = 'ephemeral') }}
+
 with source_products as (
     select * from {{ ref('int_olist__products_deduped') }}
 ),
@@ -18,8 +20,8 @@ renamed as (
         product_width_cm,
         sp._processed_at,
         CURRENT_TIMESTAMP as dbt_updated_at
-    from 
-        source_products sp JOIN source_category_translation C
+    from source_products sp 
+    left JOIN source_category_translation C
         ON sp.product_category_name = C.category_name_portuguese
 )
 

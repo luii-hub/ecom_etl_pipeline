@@ -94,4 +94,26 @@ with DAG(
                 }
             )
 
-    extract_data >> create_raw_tables >> load_raw_data_group
+    # Optional: Add a dbt debug task to verify the dbt setup (can be removed later)
+    # Note: We mounted the Docker socket, so we can run dbt commands directly from Airflow (for more information check the docker-compose.yaml in airflow folder)
+    # dbt_debug = BashOperator(
+    #     task_id="dbt_debug",
+    #     bash_command="docker exec dbt_worker dbt debug --project-dir /usr/app/olist_ecommerce/ --profiles-dir /root/.dbt"
+    # )
+
+    dbt_build_staging = BashOperator(
+        task_id="dbt_build_staging",
+        bash_command="docker exec dbt_worker dbt build --select staging --project-dir /usr/app/olist_ecommerce/ --profiles-dir /root/.dbt"
+    )
+
+    dbt_build_intermediate = BashOperator(
+        task_id="dbt_build_intermediate",
+        bash_command="docker exec dbt_worker dbt build --select intermediate --project-dir /usr/app/olist_ecommerce/ --profiles-dir /root/.dbt"
+    )
+
+    dbt_build_marts = BashOperator(
+        task_id="dbt_build_marts",
+        bash_command="docker exec dbt_worker dbt build --select final --project-dir /usr/app/olist_ecommerce/ --profiles-dir /root/.dbt"
+    )
+
+    extract_data >> create_raw_tables >> load_raw_data_group >> dbt_build_staging >> dbt_build_intermediate >> dbt_build_marts
