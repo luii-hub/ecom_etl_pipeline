@@ -87,7 +87,10 @@ x-airflow-common:
     - ../${AIRFLOW_PROJ_DIR:-.}/src:/opt/airflow/src           # Mount your python logic here
     - ../${AIRFLOW_PROJ_DIR:-.}/scripts/sql:/opt/airflow/scripts/sql   # Mount your SQL folder here
     - ../${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data         # Mount your data folder here
-  user: "${AIRFLOW_UID:-50000}:0"
+    - /var/run/docker.sock:/var/run/docker.sock
+
+  # user: "${AIRFLOW_UID:-50000}:0"
+  user: "0:0"
   depends_on:
     &airflow-common-depends-on
     redis:
@@ -130,6 +133,7 @@ services:
   airflow-apiserver:
     <<: *airflow-common
     command: api-server
+
     ports:
       - "8080:8080"
     healthcheck:

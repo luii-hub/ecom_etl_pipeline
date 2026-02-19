@@ -14,4 +14,6 @@ __pycache__/
 venv/
 profiles.yml
 dbt_cloud.yml
+notebooks/
+.log
 

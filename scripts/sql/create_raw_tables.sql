@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS raw;
 
-DROP TABLE IF EXISTS raw.olist_customers;
+DROP TABLE IF EXISTS raw.olist_customers CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_customers (
     customer_id                 TEXT,
     customer_unique_id          TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_customers (
     _ingested_at                TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_geolocation;
+DROP TABLE IF EXISTS raw.olist_geolocation CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_geolocation (
     geolocation_zip_code_prefix TEXT,
     geolocation_lat             TEXT,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_geolocation (
     _ingested_at                TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_order_items;
+DROP TABLE IF EXISTS raw.olist_order_items CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_order_items (
     order_id            TEXT,
     order_item_id       TEXT,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_order_items (
 
 );
 
-DROP TABLE IF EXISTS raw.olist_order_payments;
+DROP TABLE IF EXISTS raw.olist_order_payments CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_order_payments (
     order_id                TEXT,
     payment_sequential      TEXT,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_order_payments (
     _ingested_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_order_reviews;
+DROP TABLE IF EXISTS raw.olist_order_reviews CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_order_reviews (
     review_id               TEXT,
     order_id                TEXT,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_order_reviews (
     _ingested_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_orders;
+DROP TABLE IF EXISTS raw.olist_orders CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_orders (
     order_id                        TEXT,
     customer_id                     TEXT,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_orders (
     _ingested_at                    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_products;
+DROP TABLE IF EXISTS raw.olist_products CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_products (
     product_id                      TEXT,
     product_category_name           TEXT,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_products (
     _ingested_at                    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_sellers;
+DROP TABLE IF EXISTS raw.olist_sellers CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_sellers (
     seller_id               TEXT,
     seller_zip_code_prefix  TEXT,
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS raw.olist_sellers (
     _ingested_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP TABLE IF EXISTS raw.olist_category_name_translation;
+DROP TABLE IF EXISTS raw.olist_category_name_translation CASCADE;
 CREATE TABLE IF NOT EXISTS raw.olist_category_name_translation (
     category_name           TEXT,
     category_name_english   TEXT,
