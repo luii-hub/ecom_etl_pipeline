@@ -6,6 +6,7 @@ select
     seller_id,
     seller_zip_code_prefix,
     INITCAP(seller_city) as seller_city,
+    seller_state,
     _processed_at,
     CURRENT_TIMESTAMP as dbt_updated_at
 
