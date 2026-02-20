@@ -1,8 +1,17 @@
-# 🌀 Airflow + Postgres + Python Dockerized ETL Project
-# documentation in progress
-A minimal ETL setup using **Apache Airflow**, **PostgreSQL**, and **Python**, containerized using **Docker**.
+# 🌀 olist: Brazilian E-Commerce Data Pipeline
+![Olist Dataset](dataset-cover.png)
 
----
+This project implements a containerized ETL pipeline for the Olist Brazilian E-Commerce dataset. As a Data Engineer, the goal was to take raw, highly relational CSV data and transform it into an analytics-ready Star Schema within a PostgreSQL Data Warehouse.
+
+For a full developer documentation, please refer to [here](/docs/docs.md).
+
+### 🛠️ Tech Stack
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
 
 ## 📁 Project Structure
 
@@ -10,29 +19,25 @@ A minimal ETL setup using **Apache Airflow**, **PostgreSQL**, and **Python**, co
 project-root/
 ├── airflow/
 │ ├── dags/
+├── data/
+│ └── *.csv
+├── dbt/
+│ └── olist_ecommerce/
 │ └── logs/
-├── datasets/
-│ └── payments.csv
-├── postgres/
-│ └── init.sql
-├── docker-compose.yml
+│ └── *.yaml
+├── docs/
+├── scripts/
+│ └── sql/
+├── src/
+│ └── *.py
+├── .env
 └── .gitignore
+└── requirements.txt
 ```
 
-## 📦 Docker Commands
+## 📦 How to use the Repository (For Windows)
 
-| Action        | Command
-|---------------|---------------
-| Build containers  | docker-compose build
-| Start Containers | docker-compose up
-| Stop Containers | docker-compose down
-| Restart Containers | docker-compose restart
-| Open shell in container | docker exec -it airflow-webserver bash
-| View logs | docker-compose logs -f airflow-webserver
-
-## 📦 How to use the Repository
-
-1. Installed WSL, Dbeaver, Docker Desktop on local machine
+1. Install WSL, Dbeaver, Docker Desktop on local machine
 2. Clone the repository
 3. Build and start all services defined in docker-compose.yml
 
@@ -52,10 +57,10 @@ project-root/
     docker compose up -d --build
     ```
 
-4. Initialize airflow-webserver
+4. Initialize Airflow API Server
         
     ```
-    docker compose run airflow-webserver airflow db init
+    docker compose run <api-server-container-name> airflow db init
     ```
     Rerun the container
 
@@ -63,40 +68,14 @@ project-root/
     docker compose up -d
     ```
 
-    Create or Reset Airflow Admin User
+    Access the Airflow through http://localhost:8080 then log in using
     ```
-    docker exec -it airflow-webserver-lab bash
-    ```
-
-    Create new admin user
-    ```
-    airflow users create \
-    --username admin \
-    --firstname Admin \
-    --lastname User \
-    --role Admin \
-    --email admin@example.com \
-    --password admin
+    Username: <username>
+    Password: <password>
     ```
 
-    Access UI through http://localhost:8080 then log in using
-    ```
-    Username: admin
-    Password: admin
-    ```
-5. Test if jupyternotebook is running 
-    At **notebooks\create_ddl.ipynb** change the parameters and and run the scripts
-
-6. Connect and test PostgreSQL database to dbeaver
+5. Connect and test PostgreSQL database to dbeaver
     https://dbeaver.com/docs/dbeaver/Create-Connection/#use-the-new-connection-wizard
 
-7. Test DBT by running the sample model using wsl:
-    ```
-    docker-compose run --rm dbt run
-    ```
-
-8. DBT VS Code Plug-ins <br>
-    vscode-dbt <br>
-    dbt <br>
-
+6. VitalDBT VS Code Plug-ins <br>
     Power User for dbt <br>
