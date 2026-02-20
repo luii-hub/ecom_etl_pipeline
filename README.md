@@ -1,5 +1,5 @@
 # 🌀 olist: Brazilian E-Commerce Data Pipeline
-![Olist Dataset](dataset-cover.png)
+![Olist Dataset](docs/dataset-cover.png)
 
 This project implements a containerized ETL pipeline for the Olist Brazilian E-Commerce dataset. As a Data Engineer, the goal was to take raw, highly relational CSV data and transform it into an analytics-ready Star Schema within a PostgreSQL Data Warehouse.
 
