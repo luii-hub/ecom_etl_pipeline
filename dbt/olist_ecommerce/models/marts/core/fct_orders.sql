@@ -24,5 +24,7 @@ select
     o.delivered_customer_date,
     o.estimated_delivery_date
 from orders o
-join customers c on o.customer_order_id = c.customer_order_id
-join order_item_count oic on o.order_id = oic.order_id
+inner join customers c 
+    on o.customer_order_id = c.customer_order_id
+left join order_item_count oic 
+    on o.order_id = oic.order_id
