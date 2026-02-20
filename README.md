@@ -1,7 +1,7 @@
 # 🌀 olist: Brazilian E-Commerce Data Pipeline
 ![Olist Dataset](docs/dataset-cover.png)
 
-This project implements a containerized ETL pipeline for the Olist Brazilian E-Commerce dataset. As a Data Engineer, the goal was to take raw, highly relational CSV data and transform it into an analytics-ready Star Schema within a PostgreSQL Data Warehouse.
+This project implements a containerized ETL pipeline for the Olist Brazilian E-Commerce dataset. As a Data Engineer, the goal was to take raw, highly relational CSV data and transform it into an analytics-ready Star Schema within a PostgreSQL Data Warehouse. The core design follows the Medallion Architecture, providing a logical framework for data quality and refinement as it moves from raw ingestion to business-ready insights.
 
 For a full developer documentation, please refer to [here](/docs/docs.md).
 
