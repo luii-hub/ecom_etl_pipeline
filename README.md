@@ -5,6 +5,9 @@ This project implements a containerized ETL pipeline for the Olist Brazilian E-C
 
 For a full developer documentation, please refer to [here](/docs/docs.md).
 
+### Project Overview
+<img width="100%" height="100%" alt="image" src="https://github.com/user-attachments/assets/a422dd04-bc07-4bfa-8a7e-c2820409ac97" />
+
 ### 🛠️ Tech Stack
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)
